@@ -5,5 +5,4 @@ using namespace std;
 
 namespace ariel {
     std::string mat(int, int, char, char);
-    std::string fromMatrixToString(char &[][]);
 }

@@ -1,5 +1,7 @@
 #include <iostream>
+#include <iostream>
 #include <string>
+#include "mat.hpp"
 
 using namespace std;
 
@@ -10,39 +12,11 @@ namespace ariel {
 
 using namespace ariel;
 
-CHECK(nospaces(mat(9, 7, '@', '-')) == nospaces     ("@@@@@@@@@\n"
-													 "@-------@\n"
-													 "@-@@@@@-@\n"
-													 "@-@---@-@\n"
-													 "@-@@@@@-@\n"
-													 "@-------@\n"
-													 "@@@@@@@@@"));
-
-CHECK(nospaces(mat(9, 9, '@', '-')) == nospaces     ("@@@@@@@@@\n"
-												 	 "@-------@\n"
-												 	 "@-@@@@@-@\n"
-												 	 "@-@---@-@\n"
-												 	 "@-@-@-@-@\n"
-												 	 "@-@---@-@\n"
-												 	 "@-@@@@@-@\n"
-												 	 "@-------@\n"
-												 	 "@@@@@@@@@"));
-
-													 "$$$$$$$$$$$$$$$$$$$$$\n"				
-													 "$-------------------$\n"				
-													 "$-$$$$$$$$$$$$$$$$$-$\n"				
-													 "$-$---------------$-$\n"			
-													 "$-$-$$$$$$$$$$$$$-$-$\n"				
-													 "$-$-$-----------$-$-$\n"				
-													 "$-$-$$$$$$$$$$$$$-$-$\n"				
-													 "$-$---------------$-$\n"				
-													 "$-$$$$$$$$$$$$$$$$$-$\n"
-													 "$-------------------$\n"
-													 "$$$$$$$$$$$$$$$$$$$$$"
-
-"$$$$$$$$$$$$$$$$$$$$$	$-------------------$	$-$$$$$$$$$$$$$$$$$-$	$-$---------------$-$	$-$-$$$$$$$$$$$$$-$-$	$-$-$-----------$-$-$"
-
 /*
+The function "mat" receives two integers called "columns" and "rows" which represents rug's sizes - "columns" is the width and "rows" is the length.
+It also receives two chars named 'a' and 'b' which represents the signs from which the rug will be "made of".
+"mat" creates a 'matrix' form of the rug and returns the 'string' form of it.
+"mat" uses the sub-function called "fromMatrixToString" which appears below it.
 */
 string mat(int columns, int rows, char a, char b) {
     char rug[columns][rows];
@@ -83,15 +57,21 @@ string mat(int columns, int rows, char a, char b) {
 			rug[i][index] = currentRingChar; 	
 		}
 	}
+	return fromMatrixToString(rug);
 }
 
-string fromMatrixToString(mat[columns][rows]) {
+/*
+The sub-function "fromMatrixToString" receives .. 
+*/
+string fromMatrixToString(char &mat[columns][rows]) {
 	string answer = "";
 	for (int i = 0; i < rows; i++) {
 		for (int j = 0; j < columns; j++) {
-			
+			answer += mat[i][j];
 		}
+		answer += "\n";
 	}
+	return answer;
 }
 
 }

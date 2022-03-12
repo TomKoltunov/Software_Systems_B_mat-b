@@ -1,17 +1,12 @@
 #include <iostream>
-#include <iostream>
 #include <string>
 #include "mat.hpp"
 
 using namespace std;
 
 namespace ariel {
-    std::string mat(int, int, char, char) {
-        return " ";
-    }
-
-using namespace ariel;
-
+     
+        
 /*
 The function "mat" receives two integers called "columns" and "rows" which represents rug's sizes - "columns" is the width and "rows" is the length.
 It also receives two chars named 'a' and 'b' which represents the signs from which the rug will be "made of".
@@ -19,6 +14,7 @@ It also receives two chars named 'a' and 'b' which represents the signs from whi
 "mat" uses the sub-function called "fromMatrixToString" which appears below it.
 */
 string mat(int columns, int rows, char a, char b) {
+	
     char rug[columns][rows];
 	int columnsUpperHalf = (columns / 2) + 1;
 	int rowsUpperHalf = (rows / 2) + 1;
@@ -31,15 +27,15 @@ string mat(int columns, int rows, char a, char b) {
 			rug[index][i] = currentRingChar;
 			rug[currentRows - 1][i] = currentRingChar;
 		}
-		for (i = index + 1; i < currentRows - 1; i++) { // This loop fills the left and right lines in the current ring
+		for (int i = index + 1; i < currentRows - 1; i++) { // This loop fills the left and right lines in the current ring
 			rug[i][index] = currentRingChar;	
 			rug[i][currentColumns - 1] = currentRingChar;
 		}
-		if (currentRingChar == 'a') {
-			currentRingChar == 'b'; // switching ring characters from 'a' to 'b'
+		if (currentRingChar == a) {
+			currentRingChar = b; // switching ring characters from 'a' to 'b'
 		} 
 		else {	// currentRing == 'b'
-			currentRingChar == 'a'; // switching ring characters from 'b' to 'a'
+			currentRingChar = a; // switching ring characters from 'b' to 'a'
 		}	
 		currentColumns--;	
 		currentRows--;
@@ -53,25 +49,17 @@ string mat(int columns, int rows, char a, char b) {
 		}
 	}
 	else { // columns < rows: It means that the only thing that left to fill in the rug is the middle vertical line
-		for (i = index; i < currentRows; i++) {
+		for (int i = index; i < currentRows; i++) {
 			rug[i][index] = currentRingChar; 	
 		}
 	}
-	return fromMatrixToString(rug);
-}
-
-/*
-The sub-function "fromMatrixToString" receives .. 
-*/
-string fromMatrixToString(char &mat[columns][rows]) {
 	string answer = "";
 	for (int i = 0; i < rows; i++) {
 		for (int j = 0; j < columns; j++) {
-			answer += mat[i][j];
+			answer += rug[i][j];
 		}
 		answer += "\n";
 	}
 	return answer;
-}
-
+    }
 }

@@ -187,73 +187,17 @@ TEST_CASE("Bad input - The number of columns is 0 and the number of rows isn't")
 
 	/*The number of rows is even and positive*/
 
-	CHECK(nospaces(mat(0, 2, '^', '&')) == nospaces (""));
-
-	CHECK(nospaces(mat(0, 2, '^', '&')) == nospaces ("^^"));
-
-	CHECK(nospaces(mat(0, 2, '^', '&')) == nospaces ("^\n"
-													 "^"));
-
-	CHECK(nospaces(mat(0, 2, '^', '&')) == nospaces ("&&"));
-
-	CHECK(nospaces(mat(0, 2, '^', '&')) == nospaces ("&\n"
-													 "&"));
-
-	CHECK(nospaces(mat(0, 2, '^', '&')) == nospaces ("^&"));
-
-	CHECK(nospaces(mat(0, 2, '^', '&')) == nospaces ("^\n"
-													 "&"));
-
-	CHECK(nospaces(mat(0, 2, '^', '&')) == nospaces ("&^"));
-
-	CHECK(nospaces(mat(0, 2, '^', '&')) == nospaces ("&\n"
-													 "^"));
-
 	CHECK_THROWS(mat(0, 2, '^', '&'));
 
 	/*The number of rows is even and negative*/
-
-	CHECK(nospaces(mat(0, -2, '^', '&')) == nospaces (""));
-
-	CHECK(nospaces(mat(0, -2, '^', '&')) == nospaces ("^^"));
-
-	CHECK(nospaces(mat(0, -2, '^', '&')) == nospaces ("^\n"
-													 "^"));
-
-	CHECK(nospaces(mat(0, -2, '^', '&')) == nospaces ("&&"));
-
-	CHECK(nospaces(mat(0, -2, '^', '&')) == nospaces ("&\n"
-													 "&"));
-
-	CHECK(nospaces(mat(0, -2, '^', '&')) == nospaces ("^&"));
-
-	CHECK(nospaces(mat(0, -2, '^', '&')) == nospaces ("^\n"
-													 "&"));
-
-	CHECK(nospaces(mat(0, -2, '^', '&')) == nospaces ("&^"));
-
-	CHECK(nospaces(mat(0, -2, '^', '&')) == nospaces ("&\n"
-													 "^"));
 
 	CHECK_THROWS(mat(0, -2, '^', '&'));
 
 	/*The number of rows is odd and positive*/
 
-	CHECK(nospaces(mat(0, 1, '$', 'S')) == nospaces (""));
-
-	CHECK(nospaces(mat(0, 1, '$', 'S')) == nospaces ("$"));
-
-	CHECK(nospaces(mat(0, 1, '$', 'S')) == nospaces ("S"));
-
 	CHECK_THROWS(mat(0, 1, '$', 'S'));
 
 	/*The number of rows is odd and negative*/
-
-	CHECK(nospaces(mat(0, -1, '$', 'S')) == nospaces (""));
-
-	CHECK(nospaces(mat(0, -1, '$', 'S')) == nospaces ("$"));
-
-	CHECK(nospaces(mat(0, -1, '$', 'S')) == nospaces ("S"));
 
 	CHECK_THROWS(mat(0, -1, '$', 'S'));
 }
@@ -262,73 +206,17 @@ TEST_CASE("Bad input - The number of rows is 0 and the number of columns isn't")
 
 	/*The number of columns is even and positive*/
 
-	CHECK(nospaces(mat(2, 0, 'S', '$')) == nospaces (""));
-
-	CHECK(nospaces(mat(2, 0, 'S', '$')) == nospaces ("SS"));
-
-	CHECK(nospaces(mat(2, 0, 'S', '$')) == nospaces ("S\n"
-													 "S"));
-
-	CHECK(nospaces(mat(2, 0, 'S', '$')) == nospaces ("$$"));
-
-	CHECK(nospaces(mat(2, 0, 'S', '$')) == nospaces ("$\n"
-													 "$"));
-
-	CHECK(nospaces(mat(2, 0, 'S', '$')) == nospaces ("S$"));
-
-	CHECK(nospaces(mat(2, 0, 'S', '$')) == nospaces ("S\n"
-													 "$"));
-
-	CHECK(nospaces(mat(2, 0, 'S', '$')) == nospaces ("$S"));
-
-	CHECK(nospaces(mat(2, 0, 'S', '$')) == nospaces ("$\n"
-													 "S"));
-
 	CHECK_THROWS(mat(2, 0, 'S', '$'));
 
 	/*The number of columns is even and negative*/
-
-	CHECK(nospaces(mat(-2, 0, 'S', '$')) == nospaces (""));
-
-	CHECK(nospaces(mat(-2, 0, 'S', '$')) == nospaces ("SS"));
-
-	CHECK(nospaces(mat(-2, 0, 'S', '$')) == nospaces ("S\n"
-													  "S"));
-
-	CHECK(nospaces(mat(-2, 0, 'S', '$')) == nospaces ("$$"));
-
-	CHECK(nospaces(mat(-2, 0, 'S', '$')) == nospaces ("$\n"
-													  "$"));
-
-	CHECK(nospaces(mat(-2, 0, 'S', '$')) == nospaces ("S$"));
-
-	CHECK(nospaces(mat(-2, 0, 'S', '$')) == nospaces ("S\n"
-													  "$"));
-
-	CHECK(nospaces(mat(-2, 0, 'S', '$')) == nospaces ("$S"));
-
-	CHECK(nospaces(mat(-2, 0, 'S', '$')) == nospaces ("$\n"
-													  "S"));
 
 	CHECK_THROWS(mat(-2, 0, 'S', '$'));
 
 	/*The number of columns is odd and positive*/
 
-	CHECK(nospaces(mat(1, 0, '^', '&')) == nospaces (""));
-
-	CHECK(nospaces(mat(1, 0, '^', '&')) == nospaces ("^"));
-
-	CHECK(nospaces(mat(1, 0, '^', '&')) == nospaces ("&"));
-
 	CHECK_THROWS(mat(1, 0, '^', '&'));
 
 	/*The number of columns is odd and negative*/
-
-	CHECK(nospaces(mat(-1, 0, '^', '&')) == nospaces (""));
-
-	CHECK(nospaces(mat(-1, 0, '^', '&')) == nospaces ("^"));
-
-	CHECK(nospaces(mat(-1, 0, '^', '&')) == nospaces ("&"));
 
 	CHECK_THROWS(mat(-1, 0, '^', '&'));
 }
@@ -376,36 +264,11 @@ TEST_CASE("Bad input - more than two signs") {
 
 TEST_CASE("Bad input - both the number of rows is equal to the number of columns and both are even") {
 
-	CHECK(nospaces(mat(2, 2, '/', '/')) == nospaces ("//\n"
-													 "//"));
-
-	CHECK(nospaces(mat(2, 2, '/', '*')) == nospaces ("//\n"
-													 "//"));
-
-	CHECK(nospaces(mat(2, 2, '*', '/')) == nospaces ("//\n"
-													 "//"));
-
-	CHECK(nospaces(mat(2, 2, '/', ' ')) == nospaces ("//\n"
-													"//"));
-
-	CHECK(nospaces(mat(2, 2, ' ', '/')) == nospaces ("//\n"
-													"//"));
-
-	CHECK(nospaces(mat(2, 2, ' ', ' ')) == nospaces ("//\n"
-												   "//"));
-
 	CHECK_THROWS(mat(2, 2, '/', '/'));
 
 }
 
 TEST_CASE("Bad input - the number of rows isn't equal to the number of columns but both are even") {
-
-	CHECK(nospaces(mat(4, 6, '[', ']')) == nospaces ("[[[[\n"
-													 "[]][\n"
-													 "[]][\n"
-													 "[]][\n"
-													 "[]][\n"
-													 "[[[["));
 
 	CHECK_THROWS(mat(4, 6, '[', ']'));
 
@@ -415,37 +278,13 @@ TEST_CASE("Bad input - the number of columns is even and the number of rows is o
 
 	/*Both the number of columns and rows are positive*/
 
-	CHECK(nospaces(mat(4, 7, '[', ']')) == nospaces ("[[[[\n"
-													 "[]][\n"
-													 "[]][\n"
-													 "[]][\n"
-													 "[]][\n"
-													 "[]][\n"
-													 "[[[["));
-
 	CHECK_THROWS(mat(4, 7, '[', ']'));
 
 	/*The number of columns is negative and the number of rows is positive*/
 
-	CHECK(nospaces(mat(-4, 7, '[', ']')) == nospaces ("[[[[\n"
-													  "[]][\n"
-													  "[]][\n"
-													  "[]][\n"
-													  "[]][\n"
-													  "[]][\n"
-													  "[[[["));
-
 	CHECK_THROWS(mat(-4, 7, '[', ']'));
 
 	/*The number of columns is positive and the number of rows is negative*/
-
-	CHECK(nospaces(mat(4, -7, '[', ']')) == nospaces ("[[[[\n"
-													  "[]][\n"
-													  "[]][\n"
-													  "[]][\n"
-													  "[]][\n"
-													  "[]][\n"
-													  "[[[["));
 
 	CHECK_THROWS(mat(4, -7, '[', ']'));
 
@@ -455,34 +294,13 @@ TEST_CASE("Bad input - the number of columns is odd and the number of rows is ev
 
 	/*Both the number of columns and rows are positive*/
 
-	CHECK(nospaces(mat(5, 6, '[', ']')) == nospaces ("[[[[[\n"
-													 "[]]][\n"
-													 "[]]][\n"
-													 "[]]][\n"
-													 "[]]][\n"
-													 "[[[[["));
-
 	CHECK_THROWS(mat(5, 6, '[', ']'));
 
 	/*The number of columns is negative and the number of rows is positive*/
 
-	CHECK(nospaces(mat(-5, 6, '[', ']')) == nospaces ("[[[[[\n"
-													  "[]]][\n"
-													  "[]]][\n"
-													  "[]]][\n"
-													  "[]]][\n"
-													  "[[[[["));
-
 	CHECK_THROWS(mat(-5, 6, '[', ']'));
 
 	/*The number of columns is positive and the number of rows is negative*/
-
-	CHECK(nospaces(mat(5, -6, '[', ']')) == nospaces ("[[[[[\n"
-													  "[]]][\n"
-													  "[]]][\n"
-													  "[]]][\n"
-													  "[]]][\n"
-													  "[[[[["));
 
 	CHECK_THROWS(mat(5, -6, '[', ']'));
 

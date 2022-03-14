@@ -22,13 +22,13 @@ using namespace std;
 
 	/*
 	The sub-function "isValidSymbol" receives a character named 'c' which represents one of the symbols which assembles the matrix 
-	in funtion "mat". The function returns 'false' only in case 'c' is the char '\n' or '\t' or '\r' or the ascii number of 'c' is
+	in funtion "mat". The function returns 'false' only in case 'c' is the char ' ' or '\n' or '\t' or '\r' or the ascii number of 'c' is
 	less than 33 or its bigger (or equals) 127.
 	 Else the function returns 'true'.
 	*/
 	bool isValidSymbol(char c) {
 		bool ans = true;
-		if (c == '\n' || c == '\t' || c == '\r' || c < SMALL || c >= BIG) {
+		if (c == ' ' || c == '\n' || c == '\t' || c == '\r' || c < SMALL || c >= BIG) {
 			ans = false;
 		} 
 		return ans;
@@ -51,10 +51,10 @@ namespace ariel {
 			throw invalid_argument{"The parameter 'rows' is invalid"};
 		}
 		if (!isValidSymbol(a)) {
-			throw invalid_argument{"The parameter 'a' is invalid"};
+			throw invalid_argument{"The first sign parameter is invalid"};
 		}
 		if (!isValidSymbol(b)) {
-			throw invalid_argument{"The parameter 'b' is invalid"};
+			throw invalid_argument{"The second sign parameter is invalid"};
 		}
     	vector<vector<char>> rug(rows, vector<char>(columns));
 		int columnsUpperHalf = (columns / 2) + 1;

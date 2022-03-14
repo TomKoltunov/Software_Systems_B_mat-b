@@ -56,10 +56,6 @@ TEST_CASE("Good input - the number of rows and the number of columns are equal t
 
 	CHECK(nospaces(mat(1, 1, '$', '$')) == nospaces ("$"));
 
-	CHECK(nospaces(mat(1, 1, '!', ' ')) == nospaces ("!"));
-
-	CHECK(nospaces(mat(1, 1, ' ', '?')) == nospaces ("?"));
-
 	CHECK(nospaces(mat(1, 1, '!', '?')) == nospaces ("!"));
 
 	CHECK(nospaces(mat(1, 1, '?', '!')) == nospaces ("?"));
@@ -152,15 +148,9 @@ TEST_CASE("Bad input") {
 
     CHECK_THROWS(mat(10, 5, '$', '%'));
 
-	/*Incorrect signs order when executing function 'mat'*/
-    
-	CHECK(nospaces(mat(9, 7, '=', '+')) == nospaces ("+++++++++\n"
-													 "+=======+\n"
-													 "+=+++++=+\n"
-													 "+=+===+=+\n"
-													 "+=+++++=+\n"
-													 "+=======+\n"
-													 "+++++++++"));
+	CHECK_THROWS(nospaces(mat(1, 1, '!', ' '))); // ' ' is invalid sign
+
+	CHECK_THROWS(nospaces(mat(1, 1, ' ', '?'))); // ' ' is invalid sign
 
 }
 
@@ -219,47 +209,6 @@ TEST_CASE("Bad input - The number of rows is 0 and the number of columns isn't")
 	/*The number of columns is odd and negative*/
 
 	CHECK_THROWS(mat(-1, 0, '^', '&'));
-}
-
-TEST_CASE("Bad input - inconsistent rings order") {
-
-	CHECK(nospaces(mat(13, 13, '@', '-')) == nospaces ("@@@@@@@@@@@@@\n"
-													   "@-----------@\n"
-													   "@-----------@\n"
-													   "@-----------@\n"
-													   "@---@@@@@---@\n"
-													   "@---@---@---@\n"
-													   "@---@-@-@---@\n"
-													   "@---@---@---@\n"
-													   "@---@@@@@---@\n"
-													   "@-----------@\n"
-													   "@-----------@\n"
-													   "@-----------@\n"
-													   "@@@@@@@@@@@@@"));
-
-
-	CHECK(nospaces(mat(13, 13, '@', '-')) == nospaces ("@@@@@@@@@@@@@\n"
-													   "@@@@@@@@@@@@@\n"
-												       "@@---------@@\n"
-													   "@@---------@@\n"
-													   "@@--@@@@@--@@\n"
-													   "@@--@@@@@--@@\n"
-													   "@@--@@-@@--@@\n"
-													   "@@--@@@@@--@@\n"
-													   "@@--@@@@@--@@\n"
-													   "@@---------@@\n"
-													   "@@---------@@\n"
-													   "@@@@@@@@@@@@@\n"
-													   "@@@@@@@@@@@@@"));
-
-}
-
-TEST_CASE("Bad input - more than two signs") {
-
-	CHECK(nospaces(mat(5, 3, '=', '?')) == nospaces ("=====\n"
-													 "=?>?=\n"
-													 "====="));
-
 }
 
 TEST_CASE("Bad input - both the number of rows is equal to the number of columns and both are even") {
